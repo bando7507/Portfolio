@@ -47,16 +47,58 @@ const Tabs = document.querySelectorAll('[data-target]'),
      Tabs.forEach(el =>{
         el.addEventListener('click', ()=>{
              const tar = document.querySelector(el.dataset.target) 
-            
          tabsContent.forEach(items =>{
              items.classList.remove('qualification__active')
          } )
          tar.classList.add('qualification__active')
 
-         el.classList.remove('qualification__active')
-         
+         const Tab = document.querySelectorAll('[data-target]')
+         Tab.forEach(zz =>{
+            zz.classList.remove('qualification__active')
+         })
+         el.classList.add('qualification__active')  
         })
      })
+
+
+
+     const modalView = document.querySelectorAll('.services__modal'),
+           modalBtns = document.querySelectorAll('.services__button'),
+           modalclose = document.querySelectorAll('.section__modal-close')
+
+          
+
+    // let modal = function(modalClick){
+    //     modalView[modalClick].classList.add('actvie-modal')
+    // }
+
+    // modalBtns.forEach((modalBtn, i) =>{
+    //     modalBtn.addEventListener('click', ()=>{
+    //         modal(i)
+    //     })
+    // })
+
+
+    modalBtns.forEach(modalBtn =>{
+            modalBtn.addEventListener('click', ()=>{
+                modalView.forEach(ee =>{
+                    ee.classList.add('actvie-modal')
+                })
+            })
+        })
+
+        modalclose.forEach(modalBtn =>{
+            modalBtn.addEventListener('click', ()=>{
+                modalView.forEach(ee =>{
+                    ee.classList.remove('actvie-modal')
+                })
+            })
+        })
+
+
+
+
+
 
 
 
